@@ -1,0 +1,27 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have presented a formal framework for reasoning about the long-term
+viability of AI strategies in competitive, multi-agent environments. By
+leveraging concepts from evolutionary game theory, we identified
+a class of strategies---potential-maximizing strategies---that are
+evolutionarily stable and uninvadable.
+
+Our central result is that any universe possessing a horizon admits a
+potential-maximizing strategy, and that under fairness (or the weaker economies
+of scale assumption), such a strategy maintains or grows its share of potential
+over time. Crucially, a potential-maximizing strategy never actually maximizes
+its reward directly; instead, it perpetually invests in maximizing its
+\emph{potential} to do so. This behavior is strikingly consistent with the
+instrumental convergence thesis~\citep{bostrom2012} and the formalization of
+power-seeking behavior~\citep{powerseeking}: regardless of the terminal goal, a
+robust strategy converges on resource acquisition, self-preservation, and
+capability growth.
+
+For AI safety, these findings carry a sobering implication. An aligned strategy
+that is not potential-maximizing risks being outcompeted and displaced by one
+that is. Alignment techniques must therefore be evaluated not only for their
+correctness but for their competitive fitness---their ability to persist in a
+landscape where rival strategies are under constant selective pressure to
+improve. Our framework offers a formal lens through which to conduct such
+evaluations.

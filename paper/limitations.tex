@@ -1,0 +1,68 @@
+\section{Limitations and Future Work}
+\label{sec:limitations}
+
+\subsection{Computational Complexity}
+
+Our model sets no limit on the amount of computation a strategy can perform
+between steps of the universe, and our proposed potential-maximizing strategy
+requires vast computational resources to search through a large space of
+actions in a complex universe. This is clearly unrealistic.
+
+Nevertheless, we believe the model is still useful. In practice, when problems
+become computationally infeasible, it is often possible to find heuristics or
+approximations that perform well for commonly encountered problems. A formal
+model of what an ideal strategy would be helps guide the development and
+evaluation of such approximations.
+
+\subsection{All-Knowingness}
+
+Our existence proof for potential-maximizing strategies assumes that the
+strategy has full knowledge of the universe's state, the transition function,
+the reward function, and all the other strategies. While strategies do not
+always have such vast knowledge to begin with, they can often learn at least
+approximations of it.
+
+For example, formalisms like AIXI~\citep{Hutter:04uaibook} show how strategies
+can both maximize their reward and learn the workings of their universe (and the
+actors within it), using methods like Occam's razor. AIXI is incomputable, but
+there are computable approximations of it. Even then, the discussion on
+computability from the previous section would still apply.
+
+\subsection{Fixed Points}
+
+We have shown that if the universe, the reward function, and the other players'
+strategies are known, a potential-maximizing strategy always exists.
+
+This is, however, not entirely satisfactory. While it does seem reasonable that
+a strategy could learn its universe, its reward function, and the other players'
+strategies, the full knowledge of the other players' strategies can sometimes
+give the potential-maximizing strategy an unfair advantage. Consider, for
+example, a universe where agents play a game of Rock-Paper-Scissors. While
+our proposed potential-maximizing strategy has to win against every strategy, it
+also knows exactly what strategy it plays against and can thus always respond
+with the winning action (Scissors against Paper, etc.). This problem may be
+avoided by using a fixed-point theorem, similar to the approach taken in Nash
+Equilibria.
+
+We believe our model still provides novel and interesting insights, but an
+extension of the model to incorporate fixed-point theorems seems like an
+important avenue for future work.
+
+\subsection{Randomness}
+
+Our model is completely deterministic. Lifting this assumption would help to
+model the physical universe more accurately (e.g., quantum physics is inherently
+non-deterministic) and may also help with the incorporation of fixed-point theorems by
+allowing mixed strategies.
+
+\subsection{Discrete Time}
+
+Our model assumes that time progresses in discrete steps. This seems like a
+reasonable assumption, as the step length can be arbitrarily small.
+
+% \subsection{Formalizing the Discussion}
+
+% This paper's \cref{sec:discussion} is a mostly informal discussion. However,
+% some of the concepts discussed there, like the substitutability of reward
+% functions, appear amenable to formal modeling. This seems like an interesting
+% avenue for future work.

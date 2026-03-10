@@ -1,0 +1,8 @@
+paper.synctex.gz
+paper.bbl
+paper.blg
+paper.spl
+*.fls
+*.fdb_latexmk
+*.log
+*.aux

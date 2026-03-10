@@ -1,0 +1,72 @@
+\section{Proofs}
+
+This section contains proofs omitted from the main body of this paper and the
+lemmas required for these proofs.
+
+\begin{lemma}
+  \label{lem:expo-seq}
+  The reward for executing $n_I$ improvements and $n_R$ reward actions (in any
+  order) is always $\prod_{i < n_I} (1.1 + 0.1 \cdot i)^{e_i}$, where the $e_i
+    \in \mathbb{N}$ are exponents, and $n_R = \sum_i e_i$.
+\end{lemma}
+
+\begin{proof}
+  The universe's transition mechanics imply that a class's reward is a
+  product, with the factors being $(1.1 + 0.1 \cdot i)$, one for each
+  reward action. $i$ is determined by the number of improvements that have been
+  executed before the reward action. $e_{i}$ is simply the number of
+  reward actions that happened after improvement $i$, which may be $0$ if
+  multiple improvements are made consecutively.
+\end{proof}
+
+\begin{lemma}
+  \label{lem:breakpoint}
+  A strategy that executes all its improvements before its reward actions
+  achieves a higher reward than a strategy that executes the same actions in a
+  different order. A reward-maximizing strategy must therefore have a
+  \emph{breakpoint} $b \in \mathbb{N}$; it only executes improvements before
+  that breakpoint and only executes reward actions after that breakpoint.
+\end{lemma}
+
+\begin{proof}
+  By \cref{lem:expo-seq}, we can rewrite the goal as $(1.1 + 0.1 \cdot
+    n_I)^{n_R} \ge \prod_{i < n_I} (1.1 + 0.1 \cdot i)^{e_i}$. The former term
+  can be rewritten as $\prod_{i < n_I} (1.1 + 0.1 \cdot n_I)^{e_i}$, which
+  proves the goal because $n_I \ge i$.
+\end{proof}
+
+\begin{lemma}
+  \label{lem:breakpoints-increase}
+  As the number of transition steps increases, the breakpoint of
+  reward-maximizing strategies also increases monotonically; i.e., to be
+  reward-maximizing after more and more transitions, a strategy has to execute
+  more and more improvement actions. Formally, for any reward-maximizing
+  strategy $s$ at $n$ with breakpoint $b$ (from~\cref{lem:breakpoint}), and any
+  reward-maximizing strategy $s'$ at $n'$ with breakpoint $b'$, if $n \le n'$
+  then $b \le b'$.
+\end{lemma}
+
+\begin{proof}
+  By contradiction. Assume $b > b'$. $s$ then has a steeper slope than $s'$
+  (because it made $b - b'$ more improvements), and it will have a higher reward
+  than $s'$ at $n$ (because it is reward-maximizing at $n$), so it will also
+  have a higher reward than $s'$ at $n'$, which contradicts the assumption that
+  $s'$ maximizes rewards at $n'$.
+\end{proof}
+
+\begin{theorem}
+  In the Improvement Game, there exists a horizon $h_n$ for every $n$.
+\end{theorem}
+
+\begin{proof}
+  Choose any reward-maximizing strategy $s$ with breakpoint $b > n$, which
+  maximizes the reward at some point in time $n'$. We assign $h_n$ to be $n' -
+    n$.
+
+  Because $b > n$, we know that $s$ executes action $I$ at point $n$. Because
+  $s$ is reward-maximizing, we know that this action is also equal to the
+  potential-maximizing action $a^*_{h_n}(x,S[x=s],t_n(S[x=s]))$. By
+  \cref{lem:breakpoints-increase}, for any $h' > h$, an optimal strategy at $n +
+    h'$ must have a breakpoint greater than or equal to $b$, so it must also be
+  executing $I$ at $n$.
+\end{proof}

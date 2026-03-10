@@ -1,0 +1,113 @@
+% https://www.sciencedirect.com/journal/journal-of-theoretical-biology/publish/guide-for-authors
+
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cleveref}
+\usepackage{comment}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\pgfplotsset{compat=1.18} 
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+
+% \journal{Theoretical Biology}
+
+\begin{document}
+
+\begin{frontmatter}
+
+  %% Title, authors and addresses
+
+  %% use the tnoteref command within \title for footnotes;
+  %% use the tnotetext command for theassociated footnote;
+  %% use the fnref command within \author or \affiliation for footnotes;
+  %% use the fntext command for theassociated footnote;
+  %% use the corref command within \author for corresponding author footnotes;
+  %% use the cortext command for theassociated footnote;
+  %% use the ead command for the email address,
+  %% and the form \ead[url] for the home page:
+  %% \title{Title\tnoteref{label1}}
+  %% \tnotetext[label1]{}
+  %% \author{Name\corref{cor1}\fnref{label2}}
+  %% \ead{email address}
+  %% \ead[url]{home page}
+  %% \fntext[label2]{}
+  %% \cortext[cor1]{}
+  %% \affiliation{organization={},
+  %%             addressline={},
+  %%             city={},
+  %%             postcode={},
+  %%             state={},
+  %%             country={}}
+  %% \fntext[label3]{}
+
+  \title{Potential Maximization: An Evolutionary Stable Strategy and Its Relation to AI Safety}
+
+  \author{Konstantin Weitz}
+
+  % %% Author affiliation
+  % \affiliation{organization={},%Department and Organization
+  %   addressline={},
+  %   city={},
+  %   postcode={},
+  %   state={},
+  %   country={}}
+
+  \begin{abstract}
+    \input{abstract}
+  \end{abstract}
+
+  %%Graphical abstract
+  %\begin{graphicalabstract}
+  %\includegraphics{grabs}
+  %\end{graphicalabstract}
+
+\end{frontmatter}
+
+\input{intro}
+\input{formalism}
+%\input{discussion}
+\input{limitations}
+\input{related}
+\input{conclusion}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{bibliography.bib}
+
+\appendix
+\input{appendix}
+
+\end{document}
+
+\endinput
