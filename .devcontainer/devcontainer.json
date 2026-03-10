@@ -1,0 +1,28 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "leanprover.lean4",
+                "mathematic.vscode-pdf",
+                "james-yu.latex-workshop",
+                "dnut.rewrap-revived"
+            ]
+        },
+        "settings": {
+            "latex-workshop.formatting.latex": "latexindent",
+            "cSpell.words": [
+                "Finset",
+                "Fintype",
+                "Mathlib",
+                "Maximizable",
+                "noncomputable",
+                "succ",
+                "uninvadability",
+                "uninvadable"
+            ]
+        }
+    }
+}
