@@ -5,18 +5,18 @@ Today's AI landscape is highly competitive, with well-funded companies and
 nation-states racing to build the best AI agents and hoping to reach AGI.
 When considering AI safety, we must ask not only which strategies such
 AIs should execute to be aligned with human interests, but also which
-strategies can thrive in such a competitive environment---an aligned
+strategies can thrive in such a competitive environment---as an aligned
 strategy that leads to an agent's extinction is of little use.
 
 Evolutionary Game Theory (EGT) offers a rich body of work that uses game theory
 and other mathematical models to reason about competitive environments in
 biology and finance. We draw on ideas from that field, especially Evolutionarily
-Stable Strategies (ESS), to formalize and identify a class of strategies that
+Stable Strategies (ESS), to formalize and identify a class of AI strategies that
 can thrive under competition.
 
 To prove that a strategy is evolutionarily stable, we must formally define the
-universe in which it operates. At any given point in time, our universe is in a
-certain state and transitions to the next state based on the actions chosen by
+universe in which it operates. Our universe is in a certain state at any 
+given point in time, and transitions to the next state based on the actions chosen by
 all agents and the universe's transition function. This formulation is inspired
 by \cite{Hutter:04uaibook}'s universe model, extended to multiple agents.
 
@@ -30,7 +30,7 @@ number of paperclips, i.e., at any given point in time it wants to maximize the
 number of paperclips in the next step. For a small step length, say 1s, this
 strategy may not be creating any paperclips at all. Setting up the
 infrastructure to build paperclips (e.g., acquiring metal, tools, etc.) has
-exactly the same reward in the next step as doing anything else, namely no
+exactly the same reward 1s later as doing anything else, namely no
 paperclips being created; and so the strategy would just be wandering aimlessly. Is
 such a strategy stable? Even if the strategy started out producing the most
 paperclips in the universe, over time, it could easily be surpassed by another
@@ -38,44 +38,45 @@ strategy that actually did some long-term planning to improve its ability to
 create paperclips. So in many universes, the short-term paperclip maximization
 strategy is not stable.
 
-\textbf{Medium Term Maximization} We can also consider a strategy that wishes to
-maximize the number of paperclips within a medium-term horizon, say 1 month.
+\textbf{Medium Term Maximization} We can also consider a strategy that 
+maximizes the number of paperclips within a medium-term horizon, say 1 month.
 Such a strategy could acquire materials and machinery to produce paperclips, and
 perform self-sustaining measures. Such a strategy would likely underperform a
 strategy with a 1 day maximization goal initially, would then perform perfectly
 right at 1 month, and then be overtaken by a strategy that planned to maximize
-paperclips at 1 month and 1 week. Is this stable? No. Again, the strategies that
-are creating the most paperclips at any given point in time keep changing.
+paperclips at 1 month and 1 week. Is this stable? In many universes, the answer is no,
+and the strategies that are creating the most paperclips at any given
+point in time keep changing.
 
 \textbf{Long Term Maximization} As we consider long time horizons, say 100 years, the
-actual creation of paperclips in the beginning becomes essentially irrelevant.
+actual creation of paperclips in the first few years becomes essentially irrelevant.
 Instead, the focus shifts to power seeking: growing the economy, taking control
-over the planet/universe, defending against competing strategies, etc. The
-creation of paperclips is just a means to an end, similar to the creation of
+over the means of production, defending against competing strategies, etc. At this stage,
+the actual creation of paperclips is just a means to an end, similar to the creation of
 excavators, datacenters, bridges, etc. Only toward the very end of the time
 horizon does the focus shift toward exploiting that power to actually create
 paperclips. But at 100 years and 1 second, the strategy will then again be
 vulnerable to be overtaken by another strategy that held on to its power and
-didn't just convert all of its means of production into paperclips. Again, no
-stability.
+didn't just convert all of its means of production into paperclips. Again, in many
+universes, there is no stability.
 
-\textbf{Potential Maximization} What if a strategy was continuously looking to maximize
-paperclips for the long term? So at any time T it would aim to maximize
-paperclips at time T + 100. This strategy would always stay in the power seeking
+\textbf{Potential Maximization} What if a strategy is continuously looking to maximize
+paperclips for the long term? So at any time T it aims to maximize
+paperclips at time T + 100. This strategy then always stays in the power seeking
 phase. By always staying in the power seeking phase, the strategy is not
 necessarily good at creating any paperclips. However, it is good at always
 having the potential to create paperclips if it were to ever choose to do so
 (which it never does). We show in this paper that such a strategy is an
-Evolutionarily Stable Strategy (ESS) with respect to potential, which means that
-if such a strategy starts out with the highest potential, it continues to have
+Evolutionarily Stable Strategy (ESS) with respect to potential (under some assumptions), 
+which means that if such a strategy starts out with the highest potential, it continues to have
 the highest potential indefinitely, and is resistant to invasion by other
 strategies.
 
 While we have so far focused on paperclip maximization, the chosen
 reward function seems mostly irrelevant, as the strategy will only ever try to
-maximize the potential to maximize that reward, but will never actually maximize the
-reward. So whether a strategy maximizes the number of paperclips,
-GPUs, excavators, trees, happy humans, or any other atomic pattern to be
+maximize the potential for that reward, but will never actually maximize the
+reward itself. So whether a strategy maximizes the potential for the number of paperclips,
+GPUs, excavators, trees, happy humans, or some other atomic pattern to be
 imprinted on the universe, seems irrelevant. Our findings thus seem to be
 consistent with instrumental convergence.
 
