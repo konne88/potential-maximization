@@ -2,6 +2,7 @@ paper.synctex.gz
 paper.bbl
 paper.blg
 paper.spl
+paper.out
 *.fls
 *.fdb_latexmk
 *.log

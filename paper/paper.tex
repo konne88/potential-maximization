@@ -1,22 +1,61 @@
-% https://www.sciencedirect.com/journal/journal-of-theoretical-biology/publish/guide-for-authors
+\documentclass{article}
 
-\documentclass[preprint,12pt,authoryear]{elsarticle}
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2026
 
-%% Use the option review to obtain double line spacing
-%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+% The authors should use one of these tracks.
+% Before accepting by the NeurIPS conference, select one of the options below.
+% 0. "default" for submission
+% \usepackage{neurips_2026}
+% the "default" option is equal to the "main" option, which is used for the Main Track with double-blind reviewing.
+% 1. "main" option is used for the Main Track
+%  \usepackage[main]{neurips_2026}
+% 2. "position" option is used for the Position Paper Track
+%  \usepackage[position]{neurips_2026}
+% 3. "eandd" option is used for the Evaluations & Datasets Track
+ % \usepackage[eandd]{neurips_2026}
+ % if you need to opt-in for a single-blind submission in the E&D track:
+ %\usepackage[eandd, nonanonymous]{neurips_2026}
+% 4. "creativeai" option is used for the Creative AI Track
+%  \usepackage[creativeai]{neurips_2026}
+% 5. "sglblindworkshop" option is used for the Workshop with single-blind reviewing
+ % \usepackage[sglblindworkshop]{neurips_2026}
+% 6. "dblblindworkshop" option is used for the Workshop with double-blind reviewing
+%  \usepackage[dblblindworkshop]{neurips_2026}
 
-%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
-%% for a journal layout:
-%% \documentclass[final,1p,times]{elsarticle}
-%% \documentclass[final,1p,times,twocolumn]{elsarticle}
-%% \documentclass[final,3p,times]{elsarticle}
-%% \documentclass[final,3p,times,twocolumn]{elsarticle}
-%% \documentclass[final,5p,times]{elsarticle}
-%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+% After being accepted, the authors should add "final" behind the track to compile a camera-ready version.
+% 1. Main Track
+ % \usepackage[main, final]{neurips_2026}
+% 2. Position Paper Track
+%  \usepackage[position, final]{neurips_2026}
+% 3. Evaluations & Datasets Track
+ % \usepackage[eandd, final]{neurips_2026}
+% 4. Creative AI Track
+%  \usepackage[creativeai, final]{neurips_2026}
+% 5. Workshop with single-blind reviewing
+%  \usepackage[sglblindworkshop, final]{neurips_2026}
+% 6. Workshop with double-blind reviewing
+%  \usepackage[dblblindworkshop, final]{neurips_2026}
+% Note. For the workshop paper template, both \title{} and \workshoptitle{} are required, with the former indicating the paper title shown in the title and the latter indicating the workshop title displayed in the footnote.
+% For workshops (5., 6.), the authors should add the name of the workshop, "\workshoptitle" command is used to set the workshop title.
+% \workshoptitle{WORKSHOP TITLE}
 
-%% For including figures, graphicx.sty has been loaded in
-%% elsarticle.cls. If you prefer to use the old commands
-%% please give \usepackage{epsfig}
+% "preprint" option is used for arXiv or other preprint submissions
+\usepackage[preprint]{neurips_2026}
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2026}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -25,14 +64,9 @@
 \usepackage{comment}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usepackage{xcolor}
 
-%% The lineno packages adds line numbers. Start line numbering with
-%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
-%% for the whole article with \linenumbers.
-%% \usepackage{lineno}
 
-\pgfplotsset{compat=1.18} 
+\pgfplotsset{compat=1.18}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 
@@ -41,59 +75,29 @@
 
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 
-% \journal{Theoretical Biology}
+
+% Note. For the workshop paper template, both \title{} and \workshoptitle{} are required, with the former indicating the paper title shown in the title and the latter indicating the workshop title displayed in the footnote. 
+\title{Potential Maximization: An Evolutionary Stable Strategy and Its Relation to AI Safety}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+\author{Konstantin Weitz}
 
 \begin{document}
 
-\begin{frontmatter}
 
-  %% Title, authors and addresses
+\maketitle
 
-  %% use the tnoteref command within \title for footnotes;
-  %% use the tnotetext command for theassociated footnote;
-  %% use the fnref command within \author or \affiliation for footnotes;
-  %% use the fntext command for theassociated footnote;
-  %% use the corref command within \author for corresponding author footnotes;
-  %% use the cortext command for theassociated footnote;
-  %% use the ead command for the email address,
-  %% and the form \ead[url] for the home page:
-  %% \title{Title\tnoteref{label1}}
-  %% \tnotetext[label1]{}
-  %% \author{Name\corref{cor1}\fnref{label2}}
-  %% \ead{email address}
-  %% \ead[url]{home page}
-  %% \fntext[label2]{}
-  %% \cortext[cor1]{}
-  %% \affiliation{organization={},
-  %%             addressline={},
-  %%             city={},
-  %%             postcode={},
-  %%             state={},
-  %%             country={}}
-  %% \fntext[label3]{}
 
-  \title{Potential Maximization: An Evolutionary Stable Strategy and Its Relation to AI Safety}
-
-  \author{Konstantin Weitz}
-
-  % %% Author affiliation
-  % \affiliation{organization={},%Department and Organization
-  %   addressline={},
-  %   city={},
-  %   postcode={},
-  %   state={},
-  %   country={}}
-
-  \begin{abstract}
-    \input{abstract}
-  \end{abstract}
-
-  %%Graphical abstract
-  %\begin{graphicalabstract}
-  %\includegraphics{grabs}
-  %\end{graphicalabstract}
-
-\end{frontmatter}
+\begin{abstract}
+  \input{abstract}
+\end{abstract}
 
 \input{intro}
 \input{formalism}
@@ -102,7 +106,7 @@
 \input{related}
 \input{conclusion}
 
-\bibliographystyle{elsarticle-harv}
+\bibliographystyle{plainnat}
 \bibliography{bibliography.bib}
 
 \appendix
